@@ -36,7 +36,7 @@ cross8=494,494,602,602,602,494,494,602
 
 
 
-def best_choice(screen,human): 
+def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
     if (1 in screen and 2 not in screen) or (2 in screen and 1 not in screen):
         if screen[4] == 0:
             return 4
@@ -66,7 +66,7 @@ def best_choice(screen,human):
         else:
             del best[best.index(position)]
 
-def win_condition(screen,human, player):
+def win_condition(screen,human, player): # najde vyherny tah
     next=screen.copy()
     for position in range(len(next)):
         if next[position]== 0:
@@ -77,47 +77,63 @@ def win_condition(screen,human, player):
             next=screen.copy()
     return -1
 
-def no_lose(screen, human, player):
-    next = screen.copy()
-    for position in range(len(next)):
-        if next[position]== 0:
-            next[position]= human
-        if win(next, 3, human,player):
-            return position
-        else:
-            next=screen.copy()
-    return -1
-
-
-def draw_pc(screen,human,player):
+def draw_pc(screen,human,player): # vypise 'remiza' pri hre proti pocitacu
     if 0 not in screen and not win(screen, 3 ,human,player):
         display_message(f'Draw!',bigfont,screen)
         return True
     else:
         return False
 
-def win(screen, who, player1 = None, player2 = None):
+def win(screen, who, player1 = None, player2 = None): # urci vitaza
     if who == 0:
         if player1 == 2:
             if player1 == player2:
-                if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+                  or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+                  or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                  or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                  or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                  or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                  or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+                  or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('Computer 1 won!',bigfont,screen)
                     return True
 
             elif player1 != player2: 
-                if (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+                    or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+                    or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                    or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                    or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                    or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                    or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+                    or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('Computer 2 won!',bigfont,screen)
                     return True
             else:
                 return False
         if player1 == 1:
             if player1 == player2:
-                if (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+                    or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+                    or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                    or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                    or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                    or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                    or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+                    or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('Computer 2 won!',bigfont,screen)
                     return True
 
             elif player1 != player2: 
-                if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+                  or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+                  or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                  or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                  or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                  or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                  or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+                  or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('Computer 1 won!',bigfont,screen)
                     return True
             else:
@@ -126,79 +142,135 @@ def win(screen, who, player1 = None, player2 = None):
     if who == 1:
         if player1 == 2:
             if player1 == player2:
-                if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+                  or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+                  or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                  or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                  or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                  or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                  or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+                  or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('You lost!',bigfont,screen)
                     return True
 
             elif player1 != player2: 
-                if (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+                    or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+                    or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                    or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                    or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                    or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                    or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+                    or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('You won!',bigfont,screen)
                     return True
             else:
                 return False
         if player1 == 1:
             if player1 == player2:
-                if (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+                    or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+                    or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                    or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                    or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                    or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                    or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+                    or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('You lost!',bigfont,screen)
                     return True
 
             elif player1 != player2: 
-                if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+                if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+                  or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+                  or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+                  or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+                  or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+                  or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+                  or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+                  or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
                     display_message('You won!',bigfont,screen)
                     return True
             else:
                 return False
 
     if who == 2:
-        if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+        if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+          or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+          or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+          or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+          or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+          or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+          or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+          or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
             display_message(f'Player 1 won!',bigfont,screen)
             return True
 
-        elif (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+        elif ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+            or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+            or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+            or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+            or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+            or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+            or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+            or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
             display_message(f'Player 2 won!',bigfont,screen)
             return True
         else:
             return False
 
     if who == 3:
-        if (screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6]):
+        if ((screen[0]== 1 and screen[0]== screen[1] and screen[0] == screen[2])
+          or (screen[3]== 1 and screen[3]== screen[4] and screen[3] == screen[5])
+          or (screen[6]== 1 and screen[6]== screen[7] and screen[6] == screen[8]) 
+          or (screen[0]== 1 and screen[0]== screen[3] and screen[0] == screen[6]) 
+          or (screen[1]== 1 and screen[1]== screen[4] and screen[1] == screen[7]) 
+          or (screen[2]== 1 and screen[2]== screen[5] and screen[2] == screen[8]) 
+          or (screen[0]== 1 and screen[0] == screen[4] and screen[0] == screen[8]) 
+          or (screen[2]== 1 and screen[2]== screen[4] and screen[2] == screen[6])):
             return True
-        elif (screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8]) or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6]):
+        elif ((screen[0]== 2 and screen[0]== screen[1] and screen[0] == screen[2]) 
+            or (screen[3]== 2 and screen[3]== screen[4] and screen[3] == screen[5]) 
+            or (screen[6]== 2 and screen[6]== screen[7] and screen[6] == screen[8]) 
+            or (screen[0]== 2 and screen[0]== screen[3] and screen[0] == screen[6]) 
+            or (screen[1]== 2 and screen[1]== screen[4] and screen[1] == screen[7]) 
+            or (screen[2]== 2 and screen[2]== screen[5] and screen[2] == screen[8]) 
+            or (screen[0]== 2 and screen[0] == screen[4] and screen[0] == screen[8])
+            or (screen[2]== 2 and screen[2]== screen[4] and screen[2] == screen[6])):
             return True
         else:
             return False
 
-def draw(screen):
+def draw(screen): # vypise 'remiza' pri hre medzi dvoma hracmi
     if 0 not in screen and not win(screen,3):
         display_message(f'Draw!',bigfont,screen)
         return True
     else:
         return False
 
-def turn(screen):
+def turn(screen): # nahodny tah pocitaca
     while True:
         position = random.randint(0,8)
         if screen[position] == 0:
             return position
 
-def menu():   
+def menu():   # nakresli menu
     desk()
     button('TicTacToe',bigfont,200,80)
     button('Play',smallfont, window_width//2, window_height//2)
     pygame.display.update()
 
-def text_objects(text, font):
+def text_objects(text, font): 
     textSurface = font.render(text, True, (255,255,255))
     return textSurface, textSurface.get_rect()
 
-def button(text,font, width, height):
+def button(text,font, width, height): # vytvori blok na tlacitko
     TextSurf, TextRect = text_objects(text,font)
     TextRect.center = ((width),(height))
     window.blit(TextSurf, TextRect)
     pygame.display.update()
     return font.size(text)
 
-def display_message(text,font,screen):
+def display_message(text,font,screen): # vypise spravu
     TextSurf, TextRect = text_objects(text,font)
     TextRect.center = ((window_width/2),(window_height/2))
     window.blit(TextSurf, TextRect)
@@ -206,7 +278,7 @@ def display_message(text,font,screen):
     time.sleep(1)    
     draw_screen(screen)
 
-def display_player(display,player,screen, against):
+def display_player(display,player,screen, against): # vypise kto je na tahu
     if display == True:
         if not against: 
             display_message(f'Player {player}',bigfont,screen)
@@ -215,16 +287,16 @@ def display_player(display,player,screen, against):
             display_message('Your turn!',bigfont,screen)
             display = False
     
-def circle(x,y,color):
+def circle(x,y,color): # nakresli kruh
     pygame.draw.circle(window,color,(x,y),54,10)
     pygame.display.update()
 
-def cross(sx1,sy1,ex1,ey1,sx2,sy2,ex2,ey2,color):
+def cross(sx1,sy1,ex1,ey1,sx2,sy2,ex2,ey2,color): # nakresli krizik
     pygame.draw.line(window,color,(sx1,sy1),(ex1,ey1),8)
     pygame.draw.line(window,color,(sx2,sy2),(ex2,ey2),8)
     pygame.display.update()
 
-def desk():
+def desk(): # nakresli hraciu dosku
     window.fill(black)
     pygame.draw.line(window,(0,0,255),(220,0),(220,660),8)
     pygame.draw.line(window,(0,0,255),(440,0),(440,660),8)
@@ -232,7 +304,7 @@ def desk():
     pygame.draw.line(window,(0,0,255),(0,440),(660,440),8)
     pygame.display.update()
 
-def draw_screen(screen):
+def draw_screen(screen): # nakresli dosku aj s uz zahranymi tahmi
     window.fill(black)
     desk()
     if screen[0] == 1:
@@ -272,11 +344,11 @@ def draw_screen(screen):
     if screen[8] == 2:
         cross(cross8[0],cross8[1],cross8[2],cross8[3],cross8[4],cross8[5],cross8[6],cross8[7],green)
 
-def who_goes_first():
+def who_goes_first(): # nahodne urci kto zacina
     player= random.randint(1,2)
     return player
 
-def game_loop(run):
+def game_loop(run): # hra
     while run:
         title= True
         setting= False
@@ -292,7 +364,7 @@ def game_loop(run):
         player=who_goes_first()
         screen=[0,0,0,0,0,0,0,0,0]
         
-        if title == True:
+        if title == True: # uvod
             menu()
         while title:
             for event in pygame.event.get():
@@ -304,7 +376,8 @@ def game_loop(run):
                     if x>= (window_width//2)-60 and x <= (window_width//2) + 60 and y >= (window_height//2) - 20 and y <= (window_height//2) + 20:                        
                         settings= True
                         title = False
-        if settings == True:
+
+        if settings == True: # vyber kto hra s kym
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -328,7 +401,8 @@ def game_loop(run):
                     if x >= (3*window_width//4)-(HumanvHumanw//2) and x <= (3*window_width//4)+(HumanvHumanw//2) and y >= (3*window_height//4) - (HumanvHumanh//2)  and y<= (3*window_height//4)+(HumanvHumanh//2):
                         gameHumanvHuman = True
                         settings = False
-        if gameAIvAI == True:
+
+        if gameAIvAI == True: # hra dvoch pocitacov
             window.fill(black)
             desk()
             if player == 1:
@@ -448,7 +522,7 @@ def game_loop(run):
             else:
                 position=win_condition(screen,easy, player)
                 if position == -1:
-                    position = no_lose(screen,easy, player)
+                    position = win_condition(screen,player, easy)
                 if position == -1:
                     position = best_choice(screen,easy)
                 if player == 1:
@@ -537,7 +611,7 @@ def game_loop(run):
 
 
 
-        if difficulty == True:
+        if difficulty == True: # nastavenie obtiaznosti
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -562,7 +636,8 @@ def game_loop(run):
                         gameeasy= False
                         XO = True
                         difficulty = False
-        if XO == True:
+
+        if XO == True: # vyber krizik alebo kruzok
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -586,7 +661,7 @@ def game_loop(run):
                         
                         
                         
-        if gameeasy == True:
+        if gameeasy == True: # lahka hra proti pocitacu
             window.fill(black)
             desk()
             if human == player:
@@ -777,10 +852,8 @@ def game_loop(run):
                         if position == 8:
                             cross(cross8[0],cross8[1],cross8[2],cross8[3],cross8[4],cross8[5],cross8[6],cross8[7],green)
                             player=1
-                            screen[8] = 2
-                    
-                
-                
+                            screen[8] = 2         
+                                
                     if not win(screen, 1, human, player):
                         if not draw_pc(screen,human,player):
                             display = True
@@ -792,10 +865,8 @@ def game_loop(run):
                     elif win(screen, 1, human, player):                      
                         run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                  
                         continue
-                
-
-
-        if gamehard == True:
+       
+        if gamehard == True: # hra proti narocnemu pocitacu
             window.fill(black)
             desk()
             if human == player:
@@ -914,7 +985,7 @@ def game_loop(run):
                 else:
                     position=win_condition(screen,human, player)
                     if position == -1:
-                        position = no_lose(screen,human,player)
+                        position = win_condition(screen,player, human)
                     if position == -1:
                         position = best_choice(screen,human)
                     if position == 0:
@@ -1010,10 +1081,7 @@ def game_loop(run):
                         run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
                         continue
 
-
-
-
-        if gameHumanvHuman == True:
+        if gameHumanvHuman == True: # hra dvoch ludi
             desk()
             against=False
             display_player(display,player,screen,against)
