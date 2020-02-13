@@ -1,5 +1,5 @@
 # TicTacToe
-TicTacToe alebo piškvorky je klasická hra pre dvoch hráčov. V tejto variante si uživateľ môže vybrať, či chce hrať proti druhému užívateľovi alebo proti počítaču. Taktiež je možnosť simulovať hru počítaču proti samému sebe.
+TicTacToe alebo piškvorky je klasická hra pre dvoch hráčov. V tejto variante si hráč môže vybrať, či chce hrať proti druhému hráčovi alebo proti počítaču. Taktiež je možnosť simulovať hru počítaču proti samému sebe.
 Úroveň počítaču sa dá zvoliť z dvoch možností - optimálny súper, slabý súper.
 
 ## Cieľ
@@ -114,7 +114,7 @@ Nakreslí hraciu dosku s aj zahratými ťahmi
 Funkcia na náhodné určenie hráča, ktorý bude mať prvý ťah
 
 ## game_loop(run)
-Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu v ktorom štádiu sa hra nachádza.  
+Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu, v ktorom štádiu sa hra nachádza.  
 Ide o boolean premenné: 
 - title: riadi úvod hry
 - setting: riadi časť menu s výberom možností hier
