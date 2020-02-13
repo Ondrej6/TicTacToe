@@ -19,7 +19,7 @@ Otvorí sa okno programu s hlavným menu.
 
 <img src="img/menu.png" width="660" height="660" />
 
-Po kliknutí na play dostanete na výber na výber z troch možností:
+Po kliknutí na play dostanete na výber z troch možností:
 - AI vs AI: hra dvoch počítačov
 - Human vs AI: hra užívateľa proti počítaču
 - Human vs Human: hra dvoch užívateľov
