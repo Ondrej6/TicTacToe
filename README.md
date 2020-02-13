@@ -43,7 +43,7 @@ Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som
 
 <img src="img/difficult.png" width="660" height="660" />
 
-Následne sa zobrazí okno s možnosťou výberu či chce hráč hrať za krúžok alebo krížik.
+Následne sa zobrazí okno s možnosťou výberu, či chce hráč hrať za krúžok alebo krížik.
 
 <img src="img/cross.png" width="660" height="660" />
 
@@ -54,10 +54,10 @@ Po kliknutí sa spustí hra pre dvoch užívateľov. Player 1 je krúžok a Play
 
 ## Zvyšné funkcie
 ### win(screen, who, player1 = None, player2 = None)
-Táto funkcia skontroluje či niekto vyhral a vypíše víťaza. Celá funkcia funguje na vyhodnocovaní podmienok.  
+Táto funkcia skontroluje, či niekto vyhral a vypíše víťaza. Celá funkcia funguje na vyhodnocovaní podmienok.  
 Parametre:
 - screen: zoberie hraciu dosku
-- who: hodnota, ktorá určuje aká z troch hier prebieha (0 predstavuje [AI vs AI](#AIvsAI), 1 predstavuje [Human vs AI](#HumanVsAI), 2 predstavuje [Human vs Human](#HumanVsHuman))
+- who: hodnota, ktorá určuje aká z troch hier prebieha (0 predstavuje [AI vs AI](#AIvsAI), 1 predstavuje [Human vs AI](#HumanVsAI), 2 predstavuje [Human vs Human](#HumanVsHuman))  
 -player1 a player2: určuje kto je na ťahu a tým určí víťaza
 
 ### draw(screen)
