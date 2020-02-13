@@ -1,4 +1,4 @@
-import pygame, random, time, sys
+import pygame, random, time
 pygame.init()
 
 window_width=660
