@@ -24,7 +24,7 @@ Po kliknutí na play dostanete na výber na výber z troch možností:
 - Human vs AI: hra užívateľa proti počítaču
 - Human vs Human: hra dvoch užívateľov
 
-## AIvsAI
+### AIvsAI
 Nasimuluje hru dvoch rôznych obtiažností.
 Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah určuje funkcia turn. Táto funkcia vráti pozíciu na hracej ploche, na ktorú uskutoční svoj ťah
 
@@ -87,7 +87,7 @@ def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
         else:
             del best[best.index(position)]
 ```
-## HumanVsAI
+### HumanVsAI
 Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](#AIvsAI)
 
 <img src="img/difficult.png" width="660" height="660" />
@@ -103,4 +103,5 @@ if pygame.mouse.get_pressed() == (1,0,0):
     x,y = pygame.mouse.get_pos()
 ```
 
-
+### HumanVsHuman
+Po kliknutí sa spustí hra pre dvoch užívateľov. Player 1 je krúžok a Player 2 je krížik.
