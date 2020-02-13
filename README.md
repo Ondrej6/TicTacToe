@@ -24,6 +24,8 @@ Po kliknutí na play dostanete na výber na výber z troch možností:
 - Human vs AI: hra užívateľa proti počítaču
 - Human vs Human: hra dvoch užívateľov
 
+Hru je možné kedykoľvek ukončiť kliknutím na krížik v pravom hornom rohu okna.
+
 ### AIvsAI
 Nasimuluje hru dvoch rôznych obtiažností.
 Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah určuje funkcia turn. Táto funkcia vráti pozíciu na hracej ploche, na ktorú uskutoční svoj ťah
