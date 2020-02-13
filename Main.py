@@ -1,19 +1,18 @@
 import pygame, random, time
 pygame.init()
 
+# inicializacia a nastavneie zakladnych údajov
+## sirka a vyska okna
 window_width=660
 window_height=660
 
-window=pygame.display.set_mode((window_width,window_height))
-bigfont = pygame.font.SysFont("comicsansms", 72)
-smallfont = pygame.font.SysFont("comicsansms", 36)
-pygame.display.set_caption('TicTacToe')
-
+## nastavenie farby
 green=(0,255,0)
 blue=(0,0,255)
 red=(255,0,0)
 black=(0,0,0)
 
+## nastavenie parametrov pre jednotlive tvary
 circle0=108,108
 circle1=328,108
 circle2=548,108
@@ -34,7 +33,13 @@ cross6=54,494,162,602,162,494,54,602
 cross7=274,494,382,602,382,494,274,602
 cross8=494,494,602,602,602,494,494,602
 
+## nastavenie fontov
+bigfont = pygame.font.SysFont("comicsansms", 72)
+smallfont = pygame.font.SysFont("comicsansms", 36)
 
+## nastavenie parametrov okna
+window=pygame.display.set_mode((window_width,window_height))
+pygame.display.set_caption('TicTacToe')
 
 def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
     if (1 in screen and 2 not in screen) or (2 in screen and 1 not in screen):
@@ -76,13 +81,6 @@ def win_condition(screen,human, player): # najde vyherny tah
         else:
             next=screen.copy()
     return -1
-
-def draw_pc(screen,human,player): # vypise 'remiza' pri hre proti pocitacu
-    if 0 not in screen and not win(screen, 3 ,human,player):
-        display_message(f'Draw!',bigfont,screen)
-        return True
-    else:
-        return False
 
 def win(screen, who, player1 = None, player2 = None): # urci vitaza
     if who == 0:
@@ -348,12 +346,11 @@ def who_goes_first(): # nahodne urci kto zacina
     player= random.randint(1,2)
     return player
 
-def game_loop(run): # hra
+def game_loop(run): # cyklus samotnej hry
     while run:
         title= True
         setting= False
         gameAIvAI = False
-        gameHumanvAI = False
         gameHumanvHuman = False
         difficulty = False
         XO = False
@@ -363,8 +360,9 @@ def game_loop(run): # hra
 
         player=who_goes_first()
         screen=[0,0,0,0,0,0,0,0,0]
-        
-        if title == True: # uvod
+
+        # uvodne menu
+        if title == True:
             menu()
         while title:
             for event in pygame.event.get():
@@ -377,7 +375,8 @@ def game_loop(run): # hra
                         settings= True
                         title = False
 
-        if settings == True: # vyber kto hra s kym
+        # vyber moznosti hry
+        if settings == True: 
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -402,7 +401,8 @@ def game_loop(run): # hra
                         gameHumanvHuman = True
                         settings = False
 
-        if gameAIvAI == True: # hra dvoch pocitacov
+        # hra dvoch pocitacov
+        if gameAIvAI == True: 
             window.fill(black)
             desk()
             if player == 1:
@@ -512,11 +512,11 @@ def game_loop(run): # hra
                             player=1
                             screen[8] = 2
                 if not win(screen, 0, easy, player):
-                        if draw_pc(screen,easy,player):                            
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                            
+                        if draw(screen):                            
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                            
                             continue                    
                 elif win(screen, 0, easy, player):                      
-                        run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                  
+                        run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                  
                         continue
                 time.sleep(1)
             else:
@@ -601,17 +601,15 @@ def game_loop(run): # hra
                         screen[8] = 2          
                 time.sleep(1)
                 if not win(screen, 0, easy, player):
-                        if draw_pc(screen,easy,player): 
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                        if draw(screen): 
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False,False, False, False,False, False
                             continue                    
                 elif win(screen, 0, easy, player):                     
-                    run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                    run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                     continue
 
-
-
-
-        if difficulty == True: # nastavenie obtiaznosti
+        # nastavenie obtiaznosti
+        if difficulty == True: 
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -637,7 +635,8 @@ def game_loop(run): # hra
                         XO = True
                         difficulty = False
 
-        if XO == True: # vyber krizik alebo kruzok
+        # vyber za ktory tvar bude hrac hrat
+        if XO == True:
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -660,8 +659,8 @@ def game_loop(run): # hra
                         XO= False
                         
                         
-                        
-        if gameeasy == True: # lahka hra proti pocitacu
+        # lahka hra proti pocitacu              
+        if gameeasy == True:
             window.fill(black)
             desk()
             if human == player:
@@ -771,11 +770,11 @@ def game_loop(run): # hra
                                     player=1
                                     screen[8] = 2
                         if not win(screen, 1, human, player):
-                            if draw_pc(screen,human,player):                            
-                                run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                            
+                            if draw(screen):                            
+                                run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                            
                                 continue                    
                         elif win(screen, 1, human, player):                      
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                  
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                  
                             continue
                 else:
                     position = turn(screen)
@@ -855,18 +854,19 @@ def game_loop(run): # hra
                             screen[8] = 2         
                                 
                     if not win(screen, 1, human, player):
-                        if not draw_pc(screen,human,player):
+                        if not draw(screen):
                             display = True
                             against = True
                             display_player(display,player,screen,against)
                         else:  
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                            
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                            
                             continue                    
                     elif win(screen, 1, human, player):                      
-                        run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False                  
+                        run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False                  
                         continue
-       
-        if gamehard == True: # hra proti narocnemu pocitacu
+
+        # hra proti narocnej obtiaznosti
+        if gamehard == True:
             window.fill(black)
             desk()
             if human == player:
@@ -976,11 +976,11 @@ def game_loop(run): # hra
                                     player=1
                                     screen[8] = 2
                         if not win(screen, 1, human, player):
-                            if draw_pc(screen,human,player):                            
-                                run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                            if draw(screen):                            
+                                run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                                 continue                    
                         elif win(screen, 1, human, player):                      
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                             continue
                 else:
                     position=win_condition(screen,human, player)
@@ -1070,18 +1070,19 @@ def game_loop(run): # hra
                             player=1
                             screen[8] = 2
                     if not win(screen, 1, human, player):
-                            if not draw_pc(screen,human,player):
+                            if not draw(screen):
                                 display = True
                                 against = True
                                 display_player(display,player,screen,against)
                             else:  
-                                run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                                run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                                 continue                    
                     elif win(screen, 1, human, player):                     
-                        run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                        run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                         continue
 
-        if gameHumanvHuman == True: # hra dvoch ludi
+        # hra dvoch ludi
+        if gameHumanvHuman == True:
             desk()
             against=False
             display_player(display,player,screen,against)
@@ -1192,12 +1193,12 @@ def game_loop(run): # hra
                             time.sleep(0.5)
                             display_player(display,player,screen,against)
                         else:
-                            run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                            run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                             continue
                     elif win(screen,2):                      
-                        run, title, settings, gameAIvAI,gameHumanvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False, False,False, False
+                        run, title, settings, gameAIvAI,gameHumanvHuman, difficulty, XO,gameeasy, gamehard = True ,True, False, False, False, False, False,False, False
                         continue
 
-
+# spustenie aplikacie
 game_loop(True)
 pygame.quit()
