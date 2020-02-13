@@ -11,4 +11,4 @@ Random - náhodné určovanie ťahov a poradia hráčov
 Time - využitie funkcie sleep
 
 ## Použitie
-Pre hru spustite [Main.py](TicTacToe/Main.py)
+Pre hru spustite [Main.py](Main.py)
