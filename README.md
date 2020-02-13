@@ -1,9 +1,9 @@
 # TicTacToe
 TicTacToe alebo piškvorky je klasická hra pre dvoch hráčov. V tejto variante si uživateľ môže vybrať, či chce hrať proti druhému užívateľovi alebo proti počítaču. Taktiež je možnosť simulovať hru počítaču proti samému sebe.
-Úroveň počítaču sa dá zvoliť z dvoch možností - optimálny súper, slabý súper
+Úroveň počítaču sa dá zvoliť z dvoch možností - optimálny súper, slabý súper.
 
 ## Cieľ
-Cieľom tohto zápočtového programu je vytvorenie funkčnej hry TicTacToe
+Cieľom tohto zápočtového programu je vytvorenie funkčnej hry TicTacToe.
 
 ## Požiadavky
 - Pygame - grafické zobrazenie a beh samotnej hry
@@ -15,7 +15,7 @@ Pomocou myšky
 
 ## Použitie
 Pre hru spustite [Main.py](Main.py)
-Otvorí sa okno programu s hlavným menu
+Otvorí sa okno programu s hlavným menu.
 
 <img src="img/menu.png" width="660" height="660" />
 
@@ -28,7 +28,7 @@ Hru je možné kedykoľvek ukončiť kliknutím na krížik v pravom hornom rohu
 
 ### AIvsAI
 Nasimuluje hru dvoch rôznych obtiažností.
-Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah určuje funkcia turn. Táto funkcia vráti pozíciu na hracej ploche, na ktorú uskutoční svoj ťah
+Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah určuje funkcia turn. Táto funkcia vráti pozíciu na hracej ploche, na ktorú uskutoční svoj ťah.
 
 Počítač s náročnou obtiažnosťou sa snaží nájsť najvhodnejší ťah.
 Na tento ťah využíva počítač dve funkcie win_condition a best_choice.
@@ -47,15 +47,14 @@ Následne sa zobrazí okno s možnosťou výberu či chce hráč hrať za krúž
 
 <img src="img/cross.png" width="660" height="660" />
 
-Užívateľ určuje svoj ťah pomocou myšky
+Užívateľ určuje svoj ťah pomocou myšky.
 
 ### HumanVsHuman
 Po kliknutí sa spustí hra pre dvoch užívateľov. Player 1 je krúžok a Player 2 je krížik.
 
 ## Zvyšné funkcie
 ### win(screen, who, player1 = None, player2 = None)
-Táto funkcia skontroluje či niekto vyhral a vypíše víťaza. Celá funkcia funguje na vyhodnocovaní podmienok. 
-
+Táto funkcia skontroluje či niekto vyhral a vypíše víťaza. Celá funkcia funguje na vyhodnocovaní podmienok.  
 Parametre:
 - screen: zoberie hraciu dosku
 - who: hodnota, ktorá určuje aká z troch hier prebieha (0 predstavuje [AI vs AI](#AIvsAI), 1 predstavuje [Human vs AI](#HumanVsAI), 2 predstavuje [Human vs Human](#HumanVsHuman))
@@ -65,34 +64,35 @@ Parametre:
 Parameter screen predstavuje zoznam hodnôt, ktorého jednotlivé hodnoty predstavujú jednotlivé pozície na hracej doske. 1 predstavuje krúžok a 2 predstavuje krížik. Ak screen neobsahuje 0 a funkcia win vráti False uskutoční sa táto funkcia
 
 ### def menu()
+Nakreslí úvodné menu
 
 ### def text_objects(text, font), def button(text,font, width, height)
 Tieto funkcie fungujú na uľahčenie vykresľovania tlačítok
 
 
 ### display_message(text,font,screen)
-Funkcia ktorá slúži na výpis textu.
+Funkcia ktorá slúži na výpis textu.  
 Parametre:
 - text: text, ktorý bude vypísaný
 - font: typ fontu, ktorý bude použitý
 - screen: zoberie list s hodnotami, ktoré už boli zahrané
 
 ### display_player(display,player,screen,against)
-Vypíše kto je na ťahu
+Vypíše kto je na ťahu.  
 Parametre:
 - display, against: boolean hodnoty, pomocné parametre pri raidení funkcie
 - player: určuje kto je na ťahu
 - screen: zoberie list s hodnotami, ktoré už boli zahrané
 
 ### circle(x,y,color)
-Funkcia, ktorá vykresľuje krúžok
+Funkcia, ktorá vykresľuje krúžok.  
 Parametre:
 - x: predstavuje x-ovú súradnicu kruhu
 - y: predstavuje y-ovú súradnicu kruhu
 - color: predstavuje farbu kruhu
 
 ### cross(sx1,sy1,ex1,ey1,sx2,sy2,ex2,ey2,color)
-Funkcia na nakreslenie krížiku. Pozostáva z dvoch čiar 
+Funkcia na nakreslenie krížiku. Pozostáva z dvoch čiar.   
 Parametre:
 - sx1: x-ová súradnica začiatku prvej čiary
 - sy1: y-ová súradnica začiatku prvej čiary
@@ -114,15 +114,16 @@ Nakreslí hraciu dosku s aj zahratými ťahmi
 Funkcia na náhodné určenie hráča, ktorý bude mať prvý ťah
 
 ## game_loop(run)
-Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu v ktorom štádiu sa hra nachádza. Ide o boolean premenné: 
-        title - riadi úvod hry
-        setting - riadi časť menu s výberom možností hier
-        gameAIvAI - riadi hru dvoch počítačov
-        gameHumanvHuman - riadi hru medzi dvoma užívateľmi
-        difficulty - riadi menu pre výber obtiažnosti
-        XO - riadi menu pre výber 
-        gameeasy - riadi hru užívateľa proti počitaču na ľahkej úrovni       
-        gamehard - riadi hru uživateľa proti počítaču na náročnej úrovni
+Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu v ktorom štádiu sa hra nachádza.  
+Ide o boolean premenné: 
+- title: riadi úvod hry
+- setting: riadi časť menu s výberom možností hier
+- gameAIvAI: riadi hru dvoch počítačov
+- gameHumanvHuman: riadi hru medzi dvoma užívateľmi
+- difficulty: riadi menu pre výber obtiažnosti
+- XO:riadi menu pre výber 
+- gameeasy: riadi hru užívateľa proti počitaču na ľahkej úrovni       
+- gamehard: riadi hru uživateľa proti počítaču na náročnej úrovni
         
 Ďalšie tri premenné sú display, ktorá je len ako pomocná premenná pre niektoré funkcie ako napríklad [display_player](#display_player(display,player,screen,against)), player, ktorá určí kto je na ťahu a screen, ktorá predstavuje hraciu dosku. Ide o zoznam s hodnotami 0 1 alebo 2.
 0 predstavuje práznde políčko, 1 predstavuje krúžok a 2 predstavuje krížik. Jednotlivé pozície v zozname predstavujú pozície na hracej doske ako idú zasebou z ľavého horného rohu postupne k pravému dolnému rohu:
@@ -163,4 +164,4 @@ while settings == True:
                         settings = False
 ```
 Vždy sa v cykle nachádza podmienka, ktorá spôsobuje ukončenie tohoto cyklu. V mojom prípade je to zmenou riadiacej premennej na False a zmenením inej riadiacej premennej na True, čo spôsobí pokračovanie programu.
-Na tomto princípe fungujú všetky riadiace premenné
+Na tomto princípe fungujú všetky riadiace premenné.
