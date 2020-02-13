@@ -192,7 +192,7 @@ def text_objects(text, font):
 
 def button(text,font, width, height): # vytvori blok na tlacitko
     TextSurf, TextRect = text_objects(text,font)
-    TextRect.center = ((width),(height))
+    TextRect.center = (width, height)
     window.blit(TextSurf, TextRect)
     pygame.display.update()
     return font.size(text)
@@ -206,14 +206,12 @@ def display_message(text,font,screen): # vypise spravu
     draw_screen(screen)
 
 def display_player(display,player,screen, against): # vypise kto je na tahu
-    if display == True:
+    if display:
         if not against: 
             display_message(f'Player {player}',bigfont,screen)
-            display = False
         else:
             display_message('Your turn!',bigfont,screen)
-            display = False
-    
+
 def circle(x,y,color): # nakresli kruh
     pygame.draw.circle(window,color,(x,y),54,10)
     pygame.display.update()
@@ -278,27 +276,27 @@ def one_turn(screen, player,x,y): # tah hraca
                     circle(circle0[0],circle0[1],red)
                     player=2                                
                     screen[0] = 1
-        if x >= window_width//3 and x <= (2*window_width)//3 and y <= window_height//3:
+        if window_width//3 <= x <= (2 * window_width)//3 and y <= window_height//3:
             if screen[1] == 0:
                 circle(circle1[0],circle1[1],red)
                 player=2
                 screen[1] = 1
-        if x >= (2*window_width)//3 and x <= window_width and y <= window_height//3:
+        if (2*window_width)//3 <= x <= window_width and y <= window_height//3:
             if screen[2] == 0:
                 circle(circle2[0],circle2[1],red)
                 player=2
                 screen[2] = 1
-        if x <= window_width//3 and y >= window_height//3 and y <= (2*window_height)//3:
+        if x <= window_width//3 and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[3] == 0:
                 circle(circle3[0],circle3[1],red)
                 player=2
                 screen[3] = 1
-        if x >= window_width//3 and x <= (2*window_width)//3 and y >= window_height//3 and y <= (2*window_height)//3:
+        if window_width // 3 <= x <= (2 * window_width) // 3 and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[4] == 0:
                 circle(circle4[0],circle4[1],red)
                 player=2
                 screen[4] = 1
-        if x >= (2*window_width)//3 and x <= window_width and y >= window_height//3 and y <= (2*window_height)//3:
+        if (2 * window_width) // 3 <= x <= window_width and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[5] == 0:
                 circle(circle5[0],circle5[1],red)
                 player=2
@@ -308,12 +306,12 @@ def one_turn(screen, player,x,y): # tah hraca
                 circle(circle6[0],circle6[1],red)
                 player=2
                 screen[6] = 1
-        if x <= (2*window_width)//3 and x >= window_height//3 and y >= (2*window_height)//3:
+        if (2*window_width)//3 >= x >= window_height//3 and y >= (2 * window_height)//3:
             if screen[7] == 0:
                 circle(circle7[0],circle7[1],red)
                 player=2
                 screen[7] = 1
-        if x >= (2*window_width)//3 and x <= window_width and y >= (2*window_height)//3:
+        if (2*window_width)//3 <= x <= window_width and y >= (2 * window_height)//3:
             if screen[8] == 0:
                 circle(circle8[0],circle8[1],red)
                 player=2
@@ -324,27 +322,27 @@ def one_turn(screen, player,x,y): # tah hraca
                 cross(cross0[0],cross0[1],cross0[2],cross0[3],cross0[4],cross0[5],cross0[6],cross0[7],green)
                 player=1                                
                 screen[0] = 2
-        if x >= window_width//3 and x <= (2*window_width)//3 and y <= window_height//3:
+        if window_width//3 <= x <= (2 * window_width)//3 and y <= window_height//3:
             if screen[1] == 0:
                 cross(cross1[0],cross1[1],cross1[2],cross1[3],cross1[4],cross1[5],cross1[6],cross1[7],green)
                 player=1
                 screen[1] = 2
-        if x >= (2*window_width)//3 and x <= window_width and y <= window_height//3:
+        if (2*window_width)//3 <= x <= window_width and y <= window_height//3:
             if screen[2] == 0:
                 cross(cross2[0],cross2[1],cross2[2],cross2[3],cross2[4],cross2[5],cross2[6],cross2[7],green)
                 player=1
                 screen[2] = 2
-        if x <= window_width//3 and y >= window_height//3 and y <= (2*window_height)//3:
+        if x <= window_width//3 and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[3] == 0:
                 cross(cross3[0],cross3[1],cross3[2],cross3[3],cross3[4],cross3[5],cross3[6],cross3[7],green)
                 player=1
                 screen[3] = 2
-        if x >= window_width//3 and x <= (2*window_width)//3 and y >= window_height//3 and y <= (2*window_height)//3:
+        if window_width // 3 <= x <= (2 * window_width) // 3 and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[4] == 0:
                 cross(cross4[0],cross4[1],cross4[2],cross4[3],cross4[4],cross4[5],cross4[6],cross4[7],green)
                 player=1
                 screen[4] = 2
-        if x >= (2*window_width)//3 and x <= window_width and y >= window_height//3 and y <= (2*window_height)//3:
+        if (2 * window_width) // 3 <= x <= window_width and window_height // 3 <= y <= (2 * window_height) // 3:
             if screen[5] == 0:
                 cross(cross5[0],cross5[1],cross5[2],cross5[3],cross5[4],cross5[5],cross5[6],cross5[7],green)
                 player=1
@@ -354,12 +352,12 @@ def one_turn(screen, player,x,y): # tah hraca
                 cross(cross6[0],cross6[1],cross6[2],cross6[3],cross6[4],cross6[5],cross6[6],cross6[7],green)
                 player=1
                 screen[6] = 2
-        if x <= (2*window_width)//3 and x >= window_height//3 and y >= (2*window_height)//3:
+        if (2*window_width)//3 >= x >= window_height//3 and y >= (2 * window_height)//3:
             if screen[7] == 0:
                 cross(cross7[0],cross7[1],cross7[2],cross7[3],cross7[4],cross7[5],cross7[6],cross7[7],green)
                 player=1
                 screen[7] = 2
-        if x >= (2*window_width)//3 and x <= window_width and y >= (2*window_height)//3:
+        if (2*window_width)//3 <= x <= window_width and y >= (2 * window_height)//3:
             if screen[8] == 0:
                 cross(cross8[0],cross8[1],cross8[2],cross8[3],cross8[4],cross8[5],cross8[6],cross8[7],green)
                 player=1
@@ -469,7 +467,6 @@ def who_goes_first(): # nahodne urci kto zacina
 def game_loop(run): # cyklus samotnej hry
     while run:
         title= True
-        setting= False
         gameAIvAI = False
         gameHumanvHuman = False
         difficulty = False
@@ -482,7 +479,7 @@ def game_loop(run): # cyklus samotnej hry
         screen=[0,0,0,0,0,0,0,0,0]
 
         # uvodne menu
-        if title == True:
+        if title:
             menu()
         while title:
             for event in pygame.event.get():
@@ -491,12 +488,13 @@ def game_loop(run): # cyklus samotnej hry
                     run = False
                 if pygame.mouse.get_pressed() == (1,0,0):
                     x,y= pygame.mouse.get_pos()
-                    if x>= (window_width//2)-60 and x <= (window_width//2) + 60 and y >= (window_height//2) - 20 and y <= (window_height//2) + 20:                        
+                    if (window_width // 2) - 60 <= x <= (window_width // 2) + 60 and (window_height // 2) - 20 <= y <= (
+                            window_height // 2) + 20:
                         settings= True
                         title = False
 
         # vyber moznosti hry
-        if settings == True: 
+        if settings:
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
@@ -504,25 +502,30 @@ def game_loop(run): # cyklus samotnej hry
             HumanvAIw, HumanvAIh = button('Human vs AI',smallfont, 2*window_width//4,2*window_height//4)            
             HumanvHumanw, HumanvHumanh = button('Human vs Human',smallfont, 3*window_width//4,3*window_height//4)            
 
-        while settings == True:
+        while settings:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     settings= False
                     run = False
                 if pygame.mouse.get_pressed() == (1,0,0):
                     x,y = pygame.mouse.get_pos()
-                    if x >= (window_width//4)-(AIvAIw//2) and x <= (window_width//4)+(AIvAIw//2) and y >= (window_height//4) - (AIvAIh//2)  and y<= (window_height//4)+(AIvAIh//2):
+                    if (window_width // 4) - (AIvAIw // 2) <= x <= (window_width // 4) + (AIvAIw // 2) and (
+                            window_height // 4) - (AIvAIh // 2) <= y <= (window_height // 4) + (AIvAIh // 2):
                         gameAIvAI = True
                         settings = False
-                    if x >= (2*window_width//4)-(HumanvAIw//2) and x <= (2*window_width//4)+(HumanvAIw//2) and y >= (2*window_height//4) - (HumanvAIh//2)  and y<= (2*window_height//4)+(HumanvAIh//2):
+                    if (2 * window_width // 4) - (HumanvAIw // 2) <= x <= (2 * window_width // 4) + (
+                            HumanvAIw // 2) and (2 * window_height // 4) - (HumanvAIh // 2) <= y <= (
+                            2 * window_height // 4) + (HumanvAIh // 2):
                         difficulty = True
                         settings = False
-                    if x >= (3*window_width//4)-(HumanvHumanw//2) and x <= (3*window_width//4)+(HumanvHumanw//2) and y >= (3*window_height//4) - (HumanvHumanh//2)  and y<= (3*window_height//4)+(HumanvHumanh//2):
+                    if (3 * window_width // 4) - (HumanvHumanw // 2) <= x <= (3 * window_width // 4) + (
+                            HumanvHumanw // 2) and (3 * window_height // 4) - (HumanvHumanh // 2) <= y <= (
+                            3 * window_height // 4) + (HumanvHumanh // 2):
                         gameHumanvHuman = True
                         settings = False
 
         # hra dvoch pocitacov
-        if gameAIvAI == True: 
+        if gameAIvAI:
             window.fill(black)
             desk()
             if player == 1:
@@ -532,7 +535,6 @@ def game_loop(run): # cyklus samotnej hry
             easy=random.randint(1,2)
 
         while gameAIvAI:
-            position =-1
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     gameAIvAI = False
@@ -571,58 +573,60 @@ def game_loop(run): # cyklus samotnej hry
                     continue
 
         # nastavenie obtiaznosti
-        if difficulty == True: 
+        if difficulty:
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
             easyw, easyh = button('Easy',smallfont, window_width//4,window_height//2)
             hardw, hardh = button('Hard',smallfont, 3*window_width//4,window_height//2)
-            difficult = button('Difficult',smallfont, window_width//2, window_height//3)
 
-        while difficulty == True:
+        while difficulty:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     difficulty = False
                     run = False
                 if pygame.mouse.get_pressed() == (1,0,0):
                     x,y = pygame.mouse.get_pos()
-                    if x >= (window_width//4)-(easyw//2) and x <= (window_width//4)+(easyw//2) and y >= (window_height//2) - (easyh//2)  and y<= (window_height//2)+(easyh//2):
+                    if (window_width // 4) - (easyw // 2) <= x <= (window_width // 4) + (easyw // 2) and (
+                            window_height // 2) - (easyh // 2) <= y <= (window_height // 2) + (easyh // 2):
                         gameeasy = True
                         gamehard = False
                         XO = True
                         difficulty = False
-                    if x >= (3*window_width//4)-(hardw//2) and x <= (3*window_width//4)+(hardw//2) and y >= (window_height//2) - (hardh//2)  and y<= (window_height//2)+(hardh//2):
+                    if (3 * window_width // 4) - (hardw // 2) <= x <= (3 * window_width // 4) + (hardw // 2) and (
+                            window_height // 2) - (hardh // 2) <= y <= (window_height // 2) + (hardh // 2):
                         gamehard = True
                         gameeasy= False
                         XO = True
                         difficulty = False
 
         # vyber za ktory tvar bude hrac hrat
-        if XO == True:
+        if XO:
             window.fill(black)
             desk()
             button('TicTacToe',bigfont,200,80)
             crossw, crossh = button('Cross',smallfont, window_width//4,window_height//2)
             circlew, circleh = button('Circle',smallfont, 3*window_width//4,window_height//2)
-            difficult = button('Choose one',smallfont, window_width//2, window_height//3)
 
-        while XO == True:
+        while XO:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     XO = False
                     run = False
                 if pygame.mouse.get_pressed() == (1,0,0):
                     x,y = pygame.mouse.get_pos()
-                    if x >= (window_width//4)-(crossw//2) and x <= (window_width//4)+(crossw//2) and y >= (window_height//2) - (crossh//2)  and y<= (window_height//2)+(crossh//2):
+                    if (window_width // 4) - (crossw // 2) <= x <= (window_width // 4) + (crossw // 2) and (
+                            window_height // 2) - (crossh // 2) <= y <= (window_height // 2) + (crossh // 2):
                         human = 2
                         XO= False                        
-                    if x >= (3*window_width//4)-(circlew//2) and x <= (3*window_width//4)+(circlew//2) and y >= (window_height//2) - (circleh//2)  and y<= (window_height//2)+(circleh//2):
+                    if (3 * window_width // 4) - (circlew // 2) <= x <= (3 * window_width // 4) + (circlew // 2) and (
+                            window_height // 2) - (circleh // 2) <= y <= (window_height // 2) + (circleh // 2):
                         human = 1
                         XO= False
                         
                         
         # lahka hra proti pocitacu              
-        if gameeasy == True:
+        if gameeasy:
             window.fill(black)
             desk()
             if human == player:
@@ -630,7 +634,7 @@ def game_loop(run): # cyklus samotnej hry
             else:
                 display_message('You go second!', smallfont,screen)
 
-        while gameeasy == True:            
+        while gameeasy:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     gameeasy = False
@@ -670,7 +674,7 @@ def game_loop(run): # cyklus samotnej hry
                         continue
 
         # hra proti narocnej obtiaznosti
-        if gamehard == True:
+        if gamehard:
             window.fill(black)
             desk()
             if human == player:
@@ -678,7 +682,7 @@ def game_loop(run): # cyklus samotnej hry
             else:
                 display_message('You go second!', smallfont,screen)
 
-        while gamehard == True:
+        while gamehard:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     gamehard = False
@@ -721,7 +725,7 @@ def game_loop(run): # cyklus samotnej hry
                         continue
 
         # hra dvoch ludi
-        if gameHumanvHuman == True:
+        if gameHumanvHuman:
             desk()
             against=False
             display_player(display,player,screen,against)
@@ -737,7 +741,7 @@ def game_loop(run): # cyklus samotnej hry
                         screen, player = one_turn(screen, player,x,y)
                     else:
                         screen, player = one_turn(screen, player,x,y)                       
-                    display == True
+                    display = True
                     against = False
                     if not win(screen, 2):
                         if not draw(screen):
