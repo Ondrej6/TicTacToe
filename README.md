@@ -88,5 +88,5 @@ def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
             del best[best.index(position)]
 ```
 ### Human vs AI
-Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](## AI vs AI)
+Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](AI vs AI)
 
