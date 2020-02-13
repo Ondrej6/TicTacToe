@@ -53,7 +53,7 @@ Užívateľ určuje svoj ťah pomocou myšky
 Po kliknutí sa spustí hra pre dvoch užívateľov. Player 1 je krúžok a Player 2 je krížik.
 
 ## Zvyšné funkcie
-### ```win(screen, who, player1 = None, player2 = None)```
+### win(screen, who, player1 = None, player2 = None)
 Táto funkcia skontroluje či niekto vyhral a vypíše víťaza. Celá funkcia funguje na vyhodnocovaní podmienok. 
 
 Parametre:
