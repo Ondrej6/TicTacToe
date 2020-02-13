@@ -12,3 +12,6 @@ Time - využitie funkcie sleep
 
 ## Použitie
 Pre hru spustite [Main.py](Main.py)
+Otvorí sa okno programu s hlavným menu
+
+<img src="content/doc/main_menu.png" width="480" height="380" />
