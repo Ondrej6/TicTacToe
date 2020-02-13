@@ -113,6 +113,15 @@ Nakreslí hraciu dosku s aj zahratými ťahmi.
 ### who_goes_first()
 Funkcia na náhodné určenie hráča, ktorý bude mať prvý ťah.
 
+### check_win(screen,who)
+Funkcia, ktorá kontroluje, kto vyhral
+
+### one_turn_pc(screen, player, position)
+Táto funkcia zabezpečuje ťah počítaču. Vracia zoznam screen už so zahraným ťahom a player. Premenná player zmení hráča.
+
+### one_turn(screen, player,x,y)
+Zabezpečuje ťah hráča. Tak ako predchádzajúca funkcia vracia zoznam screen už so zahraným ťahom a player. Premenná player zmení hráča.
+
 ## game_loop(run)
 Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie, či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu, v ktorom štádiu sa hra nachádza.  
 Ide o boolean premenné: 
