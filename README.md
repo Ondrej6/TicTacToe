@@ -6,9 +6,9 @@ TicTacToe alebo piškvorky je klasická hra pre dvoch hráčov. V tejto variante
 Cieľom tohto zápočtového programu je vytvorenie funkčnej hry TicTacToe
 
 ## Požiadavky
-Pygame - grafické zobrazenie a beh samotnej hry
-Random - náhodné určovanie ťahov a poradia hráčov
-Time - využitie funkcie sleep
+- Pygame - grafické zobrazenie a beh samotnej hry
+- Random - náhodné určovanie ťahov a poradia hráčov
+- Time - využitie funkcie sleep
 
 ## Použitie
 Pre hru spustite [Main.py](Main.py)
