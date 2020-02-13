@@ -87,6 +87,20 @@ def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
         else:
             del best[best.index(position)]
 ```
-## Human vs AI
+## HumanVsAI
 Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](#AIvsAI)
+
+<img src="img/difficult.png" width="660" height="660" />
+
+Následne sa zobrazí okno s možnosťou výberu či chce hráč hrať za krúžok alebo krížik.
+
+<img src="img/cross.png" width="660" height="660" />
+
+Užívateľ určuje svoj ťah pomocou myšky:
+
+```
+if pygame.mouse.get_pressed() == (1,0,0):
+    x,y = pygame.mouse.get_pos()
+```
+
 
