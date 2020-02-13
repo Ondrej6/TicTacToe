@@ -58,30 +58,30 @@ Táto funkcia skontroluje, či niekto vyhral a vypíše víťaza. Celá funkcia 
 Parametre:
 - screen: zoberie hraciu dosku
 - who: hodnota, ktorá určuje aká z troch hier prebieha (0 predstavuje [AI vs AI](#AIvsAI), 1 predstavuje [Human vs AI](#HumanVsAI), 2 predstavuje [Human vs Human](#HumanVsHuman))  
--player1 a player2: určuje kto je na ťahu a tým určí víťaza
+- player1 a player2: určuje, kto je na ťahu a tým určí víťaza.
 
 ### draw(screen)
-Parameter screen predstavuje zoznam hodnôt, ktorého jednotlivé hodnoty predstavujú jednotlivé pozície na hracej doske. 1 predstavuje krúžok a 2 predstavuje krížik. Ak screen neobsahuje 0 a funkcia win vráti False uskutoční sa táto funkcia
+Parameter screen predstavuje zoznam hodnôt, ktorého jednotlivé hodnoty predstavujú jednotlivé pozície na hracej doske. 1 predstavuje krúžok a 2 predstavuje krížik. Ak screen neobsahuje 0 a funkcia win vráti False uskutoční sa táto funkcia.
 
 ### def menu()
-Nakreslí úvodné menu
+Nakreslí úvodné menu.
 
 ### def text_objects(text, font), def button(text,font, width, height)
-Tieto funkcie fungujú na uľahčenie vykresľovania tlačítok
+Tieto funkcie fungujú na uľahčenie vykresľovania tlačítok.
 
 
 ### display_message(text,font,screen)
-Funkcia ktorá slúži na výpis textu.  
+Funkcia, ktorá slúži na výpis textu.  
 Parametre:
 - text: text, ktorý bude vypísaný
 - font: typ fontu, ktorý bude použitý
 - screen: zoberie list s hodnotami, ktoré už boli zahrané
 
 ### display_player(display,player,screen,against)
-Vypíše kto je na ťahu.  
+Vypíše, kto je na ťahu.  
 Parametre:
 - display, against: boolean hodnoty, pomocné parametre pri raidení funkcie
-- player: určuje kto je na ťahu
+- player: určuje, kto je na ťahu
 - screen: zoberie list s hodnotami, ktoré už boli zahrané
 
 ### circle(x,y,color)
@@ -105,16 +105,16 @@ Parametre:
 - color: farba krížika
 
 ### desk()
-Nakreslí prázdnu hraciu dosku
+Nakreslí prázdnu hraciu dosku.
 
 ### draw_screen(screen)
-Nakreslí hraciu dosku s aj zahratými ťahmi
+Nakreslí hraciu dosku s aj zahratými ťahmi.
 
 ### who_goes_first()
-Funkcia na náhodné určenie hráča, ktorý bude mať prvý ťah
+Funkcia na náhodné určenie hráča, ktorý bude mať prvý ťah.
 
 ## game_loop(run)
-Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu, v ktorom štádiu sa hra nachádza.  
+Ide o hlavnú funkciu, ktorá riadi celú hru. Parameter run služi na určenie, či hra skončila alebo stále beží. Tento cyklus je rozdelený na ďalšie cykly podľa názvu, v ktorom štádiu sa hra nachádza.  
 Ide o boolean premenné: 
 - title: riadi úvod hry
 - setting: riadi časť menu s výberom možností hier
@@ -143,7 +143,7 @@ if settings == True: # vyber kto hra s kym
             HumanvAIw, HumanvAIh = button('Human vs AI',smallfont, 2*window_width//4,2*window_height//4)            
             HumanvHumanw, HumanvHumanh = button('Human vs Human',smallfont, 3*window_width//4,3*window_height//4)
 ```
-- cyklus následne kontroluje či bolo na dané tlačítka kliknuté
+- cyklus následne kontroluje, či bolo na dané tlačítka kliknuté
 
 ```
 while settings == True:
