@@ -24,7 +24,7 @@ Po kliknutí na play dostanete na výber na výber z troch možností:
 - Human vs AI: hra užívateľa proti počítaču
 - Human vs Human: hra dvoch užívateľov
 
-## AI vs AI
+## AIvsAI
 Nasimuluje hru dvoch rôznych obtiažností.
 Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah určuje funkcia turn. Táto funkcia vráti pozíciu na hracej ploche, na ktorú uskutoční svoj ťah
 
@@ -88,5 +88,5 @@ def best_choice(screen,human): # vyberie najlepsiu poziciu pre pocitac
             del best[best.index(position)]
 ```
 ## Human vs AI
-Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](#AI_vs_AI)
+Po kliknutí na Human vs AI sa zobrazia dve obtiažnosti. Tieto náročnosti som vysvetlil v časti [AI vs AI](#AIvsAI)
 
