@@ -33,9 +33,9 @@ Počítač s ľahkou obtiažnosťou vyberá svoje ťahy náhodne. Tento ťah ur�
 Počítač s náročnou obtiažnosťou sa snaží nájsť najvhodnejší ťah.
 Na tento ťah využíva počítač dve funkcie win_condition a best_choice.
 
-Win_condition kontroluje, či existuje vyherný ťah či už pre daný počítač alebo pre súpera. Ak takýto ťah neexistuje tak funkcia vráti hodnotu -1, inak vráti pozíciu na hracej ploche
+Win_condition kontroluje, či existuje vyherný ťah či už pre daný počítač alebo pre súpera. Ak takýto ťah neexistuje, tak funkcia vráti hodnotu -1, inak vráti pozíciu na hracej ploche.
 
-Best_choice sa spúšťa len v prípade ak funkcia win_condition vráti hodnotu -1. Táto funkcia vyberá vhodný ťah z voľných políčok. 
+Best_choice sa spúšťa len v prípade, ak funkcia win_condition vráti hodnotu -1. Táto funkcia vyberá vhodný ťah z voľných políčok. 
 Prvé dve podmienky určujú, aký ťah má počítač zahrať pri špecifických situáciach. Zvyšok funkcie vyberá náhodné políčko na základe priradenia hodnôt jednotlivým políčkam. Pozície 0,2,6,8 majú najvyššiu hodnotu následne pozícia 4 a  najhoršie ťahy sú 1,3,5,7.
 
 ### HumanVsAI
